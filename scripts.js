@@ -95,7 +95,8 @@ async function getData() {
 	
 	async function checkServerStatus()
 	{
-    var img = document.createElement("img");
+    var img = document.getElementById("pingit");
+	//img.setAttribute('style', 'height: 0; width: 0;')
 	console.log(img);
 	await delay(3000)
     img.onload = function()
@@ -115,7 +116,7 @@ async function getData() {
 			<br>
 			<p>Hmm, its been turned off. Try turning it on? <img src="lever.png" style="height: 30px;"></img> </p>`
     };
-    img.src = "https://www.peacefulvanilla.club/wp-content/uploads/2021/09/nopvp-180x180.png";
+    img.src = "https://maps.peacefulvanilla.club/";
 }
 checkServerStatus()
 }
