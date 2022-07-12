@@ -66,7 +66,7 @@ async function getData() {
 	//Get Java JSON
 	$.getJSON( "https://llamabot-statuspage.glitch.me/pvc/java", function( res ) {
 		console.log('Java');
-		console.log(data);
+		//console.log(data);
 		let data = res.result
 		
 		if(data.online) {
