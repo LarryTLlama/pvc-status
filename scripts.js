@@ -77,7 +77,7 @@ async function getData() {
 			<p>Player count: ${data.response.players.online}/${data.response.players.max}</p>
 			<p>MOTD: ${data.response.motd.html}</p>
 			</div>`
-			document.getElementById('playerCount').innerHTML = data.response.players.online;
+			document.getElementById('playerCount').innerHTML = data.response.players.online
 		} else if(data.online === false) {
 			document.getElementById('java').innerHTML = `<br>
 			<h2 style="color: red;"><i class="fa fa-times-circle" aria-hidden="true"></i> Java is offline!</h2>
@@ -91,13 +91,35 @@ async function getData() {
 		}
 	});
 	
-	await delay(2000)
+	//await delay(2000)
 	
-	//Dynmap Status
-	 $.ajax({url: "https://web.peacefulvanilla.club/maps/", success: function(result){
-    console.log(result);
-  }});
+	async function checkServerStatus()
+	{
+    var img = document.createElement("img");
+	console.log(img);
+	await delay(3000)
+    img.onload = function()
+    {
+		console.log(document.getElementById('website'))
+        document.getElementById('website').innerHTML = `<br>
+			<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Website is online!</h2>
+			<br>
+			<div style="padding-left: 16px; text-align: left;">
+			
+			</div>`
+    };
+    img.onerror = function()
+    {
+        document.getElementById('website').innerHTML = `<br>
+			<h2 style="color: red;"><i class="fa fa-times-circle" aria-hidden="true"></i> Website is offline!</h2>
+			<br>
+			<p>Hmm, its been turned off. Try turning it on? <img src="lever.png" style="height: 30px;"></img> </p>`
+    };
+    img.src = "https://www.peacefulvanilla.club/wp-content/uploads/2021/09/nopvp-180x180.png";
 }
+checkServerStatus()
+}
+
 
 function refresh() {
 
