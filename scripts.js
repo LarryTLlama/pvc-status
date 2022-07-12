@@ -64,9 +64,10 @@ async function getData() {
 	await delay(2000)
 	
 	//Get Java JSON
-	$.getJSON( "https://api.mcstatus.io/v1/status/java/mc.peacefulvanilla.club", function( data ) {
+	$.getJSON( "https://llamabot-statuspage.glitch.me/pvc/java", function( res ) {
 		console.log('Java');
 		console.log(data);
+		let data = res.result
 		
 		if(data.online) {
 			document.getElementById('java').innerHTML = `<br>
