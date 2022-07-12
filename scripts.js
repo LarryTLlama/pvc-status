@@ -75,8 +75,8 @@ async function getData() {
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
 			<p>Response:</p>
-			<p>Player count: ${data.response.players.online}/${data.response.players.max}</p>
-			<p>MOTD: ${data.response.motd.html}</p>
+			<p>Player count: ${data.players.online}/${data.players.max}</p>
+			<p>MOTD: ${data.motd.html}</p>
 			</div>`
 			document.getElementById('playerCount').innerHTML = data.response.players.online
 		} else if(!data.version.name) {
@@ -86,7 +86,7 @@ async function getData() {
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
 			<p>Response:</p>
-			<p>${data.response}</p>
+			<p>${data}</p>
 			</div>`
 			document.getElementById('playerCount').innerHTML = 0;
 		}
