@@ -139,7 +139,7 @@ window.onload = function() {
 	//Start refresh timer
 	
 	timer(function() {
-		refresh();
+		location.reload()
 	}, 60000);
 	
 	setInterval(function() {
