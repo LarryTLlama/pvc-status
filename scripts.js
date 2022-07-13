@@ -91,7 +91,7 @@ async function getData() {
 			<p>Player count: ${data.players.online}/${data.players.max}</p>
 			<p>MOTD: ${data.motd.html}</p>
 			</div>`
-			document.getElementById('playerCount').innerHTML = data.response.players.online
+			document.getElementById('playerCount').innerHTML = data.players.online
 			java = true
 		}
 		
