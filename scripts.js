@@ -69,17 +69,7 @@ async function getData() {
 		//console.log(data);
 		let data = res.result
 		console.log(data);
-		if(data.version.name) {
-			document.getElementById('java').innerHTML = `<br>
-			<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Java is online!</h2>
-			<br>
-			<div style="padding-left: 16px; text-align: left;">
-			<p>Response:</p>
-			<p>Player count: ${data.players.online}/${data.players.max}</p>
-			<p>MOTD: ${data.motd.html}</p>
-			</div>`
-			document.getElementById('playerCount').innerHTML = data.response.players.online
-		} else if(!data.version.name) {
+		if(!data.version.name) {
 			document.getElementById('java').innerHTML = `<br>
 			<h2 style="color: red;"><i class="fa fa-times-circle" aria-hidden="true"></i> Java is offline!</h2>
 			<p>Have a cookie for now <img src="cookie.png" style="height: 30px;"></img>
@@ -89,6 +79,16 @@ async function getData() {
 			<p>${data}</p>
 			</div>`
 			document.getElementById('playerCount').innerHTML = 0;
+		} else if(data.version.name) {
+			document.getElementById('java').innerHTML = `<br>
+			<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Java is online!</h2>
+			<br>
+			<div style="padding-left: 16px; text-align: left;">
+			<p>Response:</p>
+			<p>Player count: ${data.players.online}/${data.players.max}</p>
+			<p>MOTD: ${data.motd.html}</p>
+			</div>`
+			document.getElementById('playerCount').innerHTML = data.response.players.online
 		}
 	});
 	
