@@ -69,7 +69,7 @@ async function getData() {
 		//console.log(data);
 		let data = res.result
 		console.log(data);
-		if(!data.version.name) {
+		if(res.online === false) {
 			document.getElementById('java').innerHTML = `<br>
 			<h2 style="color: red;"><i class="fa fa-times-circle" aria-hidden="true"></i> Java is offline!</h2>
 			<p>Have a cookie for now <img src="cookie.png" style="height: 30px;"></img>
@@ -79,7 +79,7 @@ async function getData() {
 			<p>${data}</p>
 			</div>`
 			document.getElementById('playerCount').innerHTML = 0;
-		} else if(data.version.name) {
+		} else if(data.version) {
 			document.getElementById('java').innerHTML = `<br>
 			<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Java is online!</h2>
 			<br>
