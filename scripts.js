@@ -33,24 +33,25 @@ async function getData() {
 	function delay(time) {
 	return new Promise(resolve => setTimeout(resolve, time));
 	}
-
+	var bedrock;
 	//Get Bedrock JSON
 	$.getJSON( "https://api.mcstatus.io/v1/status/bedrock/bedrock.peacefulvanilla.club", function( data ) {
 		console.log('Bedrock');
 		console.log(data)
 		if(data.online) {
 			document.getElementById('bedrock').innerHTML = `<br>
-			<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Bedrock is online!</h2>
+			<h2 id="actualStatus" style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Bedrock is online!</h2>
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
 			<p>Response:</p>
 			<p>Player count: ${data.response.online_players}/${data.response.max_players}</p>
 			<p>Version: ${data.response.version}</p>
-			<p>IP: bedrock.peacefulvanilla.club Port: 19132</p>
+			<p id="maybe">IP: bedrock.peacefulvanilla.club Port: 19132</p>
 			</div>`
+			bedrock = true
 		} else if(data.online === false) {
 			document.getElementById('bedrock').innerHTML = `<br>
-			<h2 style="color: red;">Bedrock is offline!</h2>
+			<h2 id="actualStatus" style="color: red;">Bedrock is offline!</h2>
 			<p>Here's some cake for now <img src="cake.png" style="height: 30px;"></img>
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
@@ -58,11 +59,12 @@ async function getData() {
 			<p>${data.response}</p>
 			<p>IP: bedrock.peacefulvanilla.club Port: 19132</p>
 			</div>`
+			bedrock = false
 		}
 	});
 
 	await delay(2000)
-	
+	var java;
 	//Get Java JSON
 	$.getJSON( "https://llamabot-statuspage.glitch.me/pvc/java", function( res ) {
 		console.log('Java');
@@ -79,6 +81,7 @@ async function getData() {
 			<p>${data}</p>
 			</div>`
 			document.getElementById('playerCount').innerHTML = 0;
+			java = false
 		} else if(data.version) {
 			document.getElementById('java').innerHTML = `<br>
 			<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Java is online!</h2>
@@ -89,8 +92,26 @@ async function getData() {
 			<p>MOTD: ${data.motd.html}</p>
 			</div>`
 			document.getElementById('playerCount').innerHTML = data.response.players.online
+			java = true
 		}
+		
+		console.log(java);
+		if(java === false) {
+		console.log('java false')
+		if (bedrock === true) {
+			console.log('bedrock true')
+		const maybe = document.getElementById("maybe")
+		if(maybe) {
+			maybe.setAttribute('style', 'color: orange;')
+			maybe.innerHTML = `Bedrock is stating it is online, whereas the main server is not. This may be incorrect!`
+			document.getElementById('actualStatus').innerHTML = `<i class="fa fa-question-circle-o" aria-hidden="true"></i> Bedrock might be online`
+			document.getElementById('actualStatus').setAttribute('style', 'color: orange;')
+		}
+	}
+	}
 	});
+	
+	
 	
 	//await delay(2000)
 	
