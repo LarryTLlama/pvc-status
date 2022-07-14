@@ -88,11 +88,22 @@ async function getData() {
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
 			<p>Response:</p>
-			<p>Player count: ${data.players.online}/${data.players.max}</p>
+			<p id="maybe2">Player count: ${data.players.online}/${data.players.max}</p>
 			<p>MOTD: ${data.motd.html}</p>
 			</div>`
 			document.getElementById('playerCount').innerHTML = data.players.online
 			java = true
+			
+			if(data.players.online === 0) {
+			document.getElementById('java').innerHTML = `<br>
+			<h2 style="color: orange;"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Java might be online</h2>
+			<br>
+			<div style="padding-left: 16px; text-align: left;">
+			<p>Response:</p>
+			<p>Players:<a style="color: orange;"> There aren't any players online! This is probably because players couldn't connect to PVC.</a></p>
+			<p>MOTD: ${data.motd.html}</p>
+			</div>`
+			}
 		}
 		
 		console.log(java);
@@ -109,6 +120,7 @@ async function getData() {
 		}
 	}
 	}
+	
 	});
 	
 	
