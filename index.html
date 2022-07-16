@@ -6,13 +6,40 @@
 <meta name="description" content="Check PVC's Bedrock, Java and Website server status :D">
 <link rel="shortcut icon" href="pvc-favicon.ico"> 
 <link id="theme-style" rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+
+<div style="padding-top: 7%;" id="playerList">
+
+<div id="list"> 
+<div id="lePlayers">
+<img src="loadingBIG.gif"> </img>
+<h1 style="padding-left: 16px;">Preparing Player List...</h1>
+
+
+
+</div>
+</div>
+<div id="playerInfo">
+<div id="playerName"><p><strong>Steve</strong></p></div>
+<div id="playerSkin"><!--<img src="https://crafatar.com/renders/body/49e3a7b1c4ad4a6bbdf5b3aa0808bd82"></img>--><img height="10%" src="steve.png"></div>
+<div id="playerCoords"><img src="https://minecraft-api.com/api/achivements/map/Coordinates/0..0"></img></div>
+<div id="playerWorld"><img src="https://minecraft-api.com/api/achivements/grass/Dimension/Overworld"></img></div>
+<div id="playerMap"><a href="https://web.peacefulvanilla.club/maps"><button>Open in Pl3xMap</button></a></div>
+
+</div>
+</div>
 <iframe id="pingit" style="display: none;"></iframe>
 <!--Navigation Bar-->
 <div id="navbar"> 
+<button id="navBarButton" style="background-color: green; color: white; float: right; margin: 5px;" onclick="javascript:openPlayerList()">
+<h3>Open Player List</h3>
+</button>
 <div id="icon">
 <img src="pvc-favicon.png" style="float: left; width: 4%; margin-top: 0.5%; margin-left: 0.5%;" id="navIcon"></img>
 </div>

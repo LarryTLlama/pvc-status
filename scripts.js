@@ -29,10 +29,12 @@ function timer(callback, delay) {
     timer.start()
 }
 
-async function getData() {
-	function delay(time) {
+function delay(time) {
 	return new Promise(resolve => setTimeout(resolve, time));
 	}
+
+async function getData() {
+	
 	var bedrock;
 	//Get Bedrock JSON
 	$.getJSON( "https://api.mcstatus.io/v1/status/bedrock/bedrock.peacefulvanilla.club", function( data ) {
@@ -80,7 +82,6 @@ async function getData() {
 			<p>Response:</p>
 			<p>${data}</p>
 			</div>`
-			document.getElementById('playerCount').innerHTML = 0;
 			java = false
 		} else if(data.version) {
 			document.getElementById('java').innerHTML = `<br>
@@ -91,7 +92,6 @@ async function getData() {
 			<p id="maybe2">Player count: ${data.players.online}/${data.players.max}</p>
 			<p>MOTD: ${data.motd.html}</p>
 			</div>`
-			document.getElementById('playerCount').innerHTML = data.players.online
 			java = true
 			
 			if(data.players.online === 0) {
@@ -124,6 +124,10 @@ async function getData() {
 	});
 	
 	
+	await delay(3000)
+
+players();
+	
 	
 	//await delay(2000)
 	
@@ -132,27 +136,20 @@ async function getData() {
     var img = document.getElementById("pingit");
 	//img.setAttribute('style', 'height: 0; width: 0;')
 	console.log(img);
-	await delay(3000)
+	await delay(2000)
     img.onload = function()
     {
 		console.log(document.getElementById('website'))
-        document.getElementById('website').innerHTML = `<br>
-			<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Website is online!</h2>
-			<br>
-			<div style="padding-left: 16px; text-align: left;">
-			
-			</div>`
+        
     };
     img.onerror = function()
     {
-        document.getElementById('website').innerHTML = `<br>
-			<h2 style="color: red;"><i class="fa fa-times-circle" aria-hidden="true"></i> Website is offline!</h2>
-			<br>
-			<p>Hmm, its been turned off. Try turning it on? <img src="lever.png" style="height: 30px;"></img> </p>`
+       
     };
     img.src = "https://maps.peacefulvanilla.club/";
 }
-checkServerStatus()
+
+
 }
 
 
@@ -161,10 +158,6 @@ function refresh() {
 	timer(function() {
 		refresh();
 	}, 60000);
-	
-	setInterval(function() {
-		document.getElementById('timerLeft').innerHTML = `${timer.getTimeLeft() / 1000}.`.split(".")[0]
-	}, 1000);
 	
 	getData();
 }
@@ -176,10 +169,54 @@ window.onload = function() {
 		location.reload()
 	}, 60000);
 	
-	setInterval(function() {
-		document.getElementById('timerLeft').innerHTML = `${timer.getTimeLeft() / 1000}.`.split(".")[0]
-	}, 1000);
 	//Refresh the thingy
 	
 	getData();
+	
+	
+}
+
+function closePlayerList() {
+	document.getElementById('playerList').style.display = 'none';
+	document.getElementById('navBarButton').setAttribute('style', 'background-color: green; color: white; float: right; margin: 5px;')
+	document.getElementById('navBarButton').setAttribute('onclick', "javascript:openPlayerList()")
+	document.getElementById('navBarButton').innerHTML = `<h3>Open Player List</h3>`
+}
+
+function openPlayerList() {
+	document.getElementById('playerList').style.display = 'block';
+	document.getElementById('navBarButton').setAttribute('style', 'background-color: red; color: white; float: right; margin: 5px;')
+	document.getElementById('navBarButton').setAttribute('onclick', "javascript:closePlayerList()")
+	document.getElementById('navBarButton').innerHTML = `<h3>Close Player List</h3>`
+}
+
+function players() {
+$.getJSON( "https://llamabot-statuspage.glitch.me/pvc", function( data ) {
+	if(data.max) {
+	document.getElementById('website').innerHTML = '<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Map is online!</h2>'
+	document.getElementById('lePlayers').innerHTML = '<h1 style="padding-left: 16px;">Player List</h1>'
+	console.log(data);
+	data.players.forEach(function(item, index) {
+	document.getElementById('lePlayers').innerHTML += `<button class="playerButton" onclick="javascript:updateSidebar('${item.name}', '${item.uuid}', '${item.x}', '${item.z}', '${item.world}' )">
+<img style="float: left;" src="${'https://crafatar.com/renders/head/' + item.uuid}"></img>
+
+<h3>${item.name}</h3>
+<p>${item.x}, ${item.z}</p>
+<p>${item.world}</p>
+</button>`
+	})
+	}
+})
+}
+
+
+
+function updateSidebar(name, uuid, xcoord, zcoord, world) {
+document.getElementById('playerInfo').innerHTML = `
+<div id="playerName"><p><strong>${name}</strong></p></div>
+<div id="playerSkin"><img src="https://crafatar.com/renders/body/${uuid}"></img></div>
+<div id="playerCoords"><img src="https://minecraft-api.com/api/achivements/map/Coordinates/${xcoord + '..' + zcoord}"></img></div>
+<div id="playerWorld"><img src="https://minecraft-api.com/api/achivements/grass/Dimension/${world}"></img></div>
+<div id="playerMap"><a href="https://web.peacefulvanilla.club/maps/#${world};flat;${xcoord},64,${zcoord};3"><button>Open in Pl3xMap</button></a></div>
+`
 }
