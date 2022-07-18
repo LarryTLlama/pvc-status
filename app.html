@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--Style Sheet, Scripts, Jquery and FA-->
+<title>PVC Service Checker</title>
+<meta name="description" content="Check PVC's Bedrock, Java and Website server status :D">
+<link rel="shortcut icon" href="pvc-favicon.ico"> 
+<script src="toMobile.js"></script>
+<link id="theme-style" rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+<div style="padding-top: 7%;" id="playerList">
+
+<div id="list"> 
+<div id="lePlayers">
+<img src="loadingBIG.gif"> </img>
+<h1 style="padding-left: 16px;">Preparing Player List...</h1>
+
+
+
+</div>
+</div>
+</div>
+<!--Navigation Bar-->
+<div id="navbar"> 
+<a href="index.html">
+<button id="navBarButton" style="background-color: red; color: white; float: right; margin: 5px;" onclick="javascript: window.location = index.html">
+<h3>Back to status dashboard</h3>
+</button>
+</a>
+<div id="icon">
+<img src="pvc-favicon.png" style="float: left; width: 4%; margin-top: 0.5%; margin-left: 0.5%;" id="navIcon"></img>
+</div>
+
+<div id="title">
+<h1 id="title">Peaceful Vanilla Club App</h1>
+</div>
+</div>
+<!--https://cdn.glitch.me/f5b585ed-257e-45fe-b126-5e715deab07d/PVC%20App%20V1.0.0.zip?v=1658172949660-->
+
+<div style="width: 95%; height: 85%;" class="contentLeft">
+<div class="smolContent">
+<div style="text-align: left;">
+<h2>Downloading</h2>
+<p>Click the button below. A .zip archive will download, which can be extracted to reveal multiple files. (We suggest you extract into a folder). Run the main executable and the app will run :D</p>
+
+<h2>Using</h2>
+<p>On startup, a windows console will run. This starts up the main window, with all the fancy content. The dropdown menus (just below the top-bar) have most of the main content, including "easy-reach" vote links, links to the wiki, etc. </p>
+
+<h2>Editing</h2>
+<p>Feel free to edit the source code. The main.js file contains almost all the main logic, in which you can change the menus, and even load up entirely new webpages!</p>
+
+<h2>Notes</h2>
+<p>1. I ran into a couple problemos with windows defender. It should run fine, but let me know if defender finds any malware (P.S *I* haven't added anything sus in, but its always worth double checking...<br>
+2. This is for windows OS's only. Sorry Mac, Linux and mobile club =(<br>
+3. The overall file size is about 100MB, but then when extracted should take around 300 MB.<br>
+4. The actual archive is downloaded from a site called Glitch, which powers the API for this site! <a href="https://llamabot-statuspage.glitch.me/pvc">https://llamabot-statuspage.glitch.me/pvc (Player List)</a> </p>
+<button href="https://cdn.glitch.me/f5b585ed-257e-45fe-b126-5e715deab07d/PVC%20App%20V1.0.0.zip?v=1658172949660">Get the app (Windows)</button>
+</div>
+</div>
+</div>
+</body>
+</html>

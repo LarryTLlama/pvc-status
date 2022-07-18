@@ -215,8 +215,8 @@ function updateSidebar(name, uuid, xcoord, zcoord, world) {
 document.getElementById('playerInfo').innerHTML = `
 <div id="playerName"><p><strong>${name}</strong></p></div>
 <div id="playerSkin"><img src="https://crafatar.com/renders/body/${uuid}"></img></div>
-<div id="playerCoords"><img src="https://minecraft-api.com/api/achivements/map/Coordinates/${xcoord + '..' + zcoord}"></img></div>
-<div id="playerWorld"><img src="https://minecraft-api.com/api/achivements/grass/Dimension/${world}"></img></div>
+<div id="playerCoords"><img class="image" src="https://minecraft-api.com/api/achivements/map/Coordinates/${xcoord + '..' + zcoord}"></img></div>
+<div id="playerWorld"><img class="image" src="https://minecraft-api.com/api/achivements/grass/Dimension/${world}"></img></div>
 <div id="playerMap"><a href="https://web.peacefulvanilla.club/maps/#${world};flat;${xcoord},64,${zcoord};3"><button>Open in Pl3xMap</button></a></div>
 `
 }
