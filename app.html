@@ -2,67 +2,169 @@
 <html>
 <head>
 <!--Style Sheet, Scripts, Jquery and FA-->
-<title>PVC Service Checker</title>
-<meta name="description" content="Check PVC's Bedrock, Java and Website server status :D">
-<link rel="shortcut icon" href="pvc-favicon.ico"> 
-<script src="toMobile.js"></script>
-<link id="theme-style" rel="stylesheet" href="styles.css">
+<title>Larry's app</title>
+<meta name="description" content="Download the app that makes PVC easier!">
+<link rel="shortcut icon" href="llama-favicon.jpeg"> 
+<link id="theme-style" rel="stylesheet" href="appstyles.css">
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-
-
-<div style="padding-top: 7%;" id="playerList">
-
-<div id="list"> 
-<div id="lePlayers">
-<img src="loadingBIG.gif"> </img>
-<h1 style="padding-left: 16px;">Preparing Player List...</h1>
-
-
-
-</div>
-</div>
-</div>
 <!--Navigation Bar-->
 <div id="navbar"> 
 <a href="index.html">
 <button id="navBarButton" style="background-color: red; color: white; float: right; margin: 5px;" onclick="javascript: window.location = index.html">
-<h3>Back to status dashboard</h3>
+<h3>Back to PVC status dashboard</h3>
 </button>
 </a>
 <div id="icon">
-<img src="pvc-favicon.png" style="float: left; width: 4%; margin-top: 0.5%; margin-left: 0.5%;" id="navIcon"></img>
+<img src="llama-favicon.jpeg" style="float: left; width: 4%; margin-top: 0.5%; margin-left: 0.5%;" id="navIcon"></img>
 </div>
 
+<!--Pre-Install Notes-->
 <div id="title">
-<h1 id="title">Peaceful Vanilla Club App</h1>
+<h1 id="title">Larry's App</h1>
 </div>
 </div>
-<!--https://cdn.glitch.me/f5b585ed-257e-45fe-b126-5e715deab07d/PVC%20App%20V1.0.0.zip?v=1658172949660-->
+<script>
+//
+//Clicking off will hide screen
+//
 
-<div style="width: 95%; height: 85%;" class="contentLeft">
+function hide() {
+console.log('Poof! Its gone!')
+document.getElementById('greyOverlay').style.display = 'none';
+document.getElementById('windows').style.display = 'none';
+document.getElementById('linux').style.display = 'none';
+}
+</script>
+<div id="greyOverlay" onclick="javascript:hide()"></div>
+
+<div id="windows">
+<h2>Pre-Installation notes</h2>
+<div class="notesContainer">
+<pre id="windowsN" name="fname">
+</pre>
+</div>
+<br>
+<a href="https://github.com/LarryTLlama/pvc-status/raw/main/Larry's%20App%20(Setup).exe"><button>Download Windows</button></a> <a href="javascript:hide()"><button>Cancel</button></a>
+</div>
+
+<div id="linux">
+<h2>Pre-Installation notes</h2>
+<div class="notesContainer">
+<pre id="linuxN" name="fname">
+</pre>
+</div>
+<br>
+<a href="https://github.com/LarryTLlama/pvc-status/raw/main/larry-s-app_1.0.0_amd64.deb"><button>Download Linux</button></a> <a href="javascript:hide()"><button>Cancel</button></a>
+</div>
+
+<!--Main page content-->
+<div style="width: 95%; height: 80%;" class="contentLeft">
 <div class="smolContent">
 <div style="text-align: left;">
-<h2>Downloading</h2>
-<p>Click the button below to download the installer, which will install the PVC App (duh). </p>
+<h2>What is Larry's App?</h2>
+<p>Larry's app is a simple little app writen to help PVC players have an easier way of accessing all the links related to the server.</p>
+<br>
 
-<h2>Using</h2>
-<p>Simply download, run the installer and open the app. The links across the top are the main feature, allowing for quick access between sites such as vote links.</p>
+<script>
+function windows() {
+document.getElementById('greyOverlay').style.display = 'block';
+document.getElementById('windows').style.display = 'block';
+}
 
-<h2>Editing</h2>
-<p>Feel free to edit the source code. The main.js file contains almost all the main logic, in which you can change the menus, and even load up entirely new webpages!</p>
+function linux() {
+document.getElementById('greyOverlay').style.display = 'block';
+document.getElementById('linux').style.display = 'block';
+}
+</script>
+<h2>Downloads</h2>
+<p><strong>Windows <i class="fa-brands fa-windows"></i></strong></p>
+<p>Latest Stable release: V1.0.2</p>
+<a href="javascript:windows()"><button>Download Installer</button></a>
+<br><br>
+<p><strong>Linux <i class="fa-brands fa-linux"></i></strong></p>
+<p>Latest Stable release: V1.0.0</p>
+<a href="javascript:linux()"><button>Download Package</button></a>
+<p>Thanks to TheDuckButler for providing the Linux build!</p>
 
-<h2>Notes</h2>
-<p>1. I ran into a couple problemos with windows defender. It should run fine, but let me know if defender finds any malware (P.S *I* haven't added anything sus in, but its always worth double checking...<br>
-2. This is for windows OS's only. Sorry Mac and mobile club =(. Linux build coming soon though!<br>
-3. <a href="https://www.peacefulvanilla.club">PVC</a> is a Semi-Vanilla Minecraft Server. This fan-made app is not required to play on the server, but helps out players in accessing content for Peaceful Vanilla Club. This app is unofficial, and changes can still be made to it. Just send me a DM <3 <br></p>
-<a href="https://github.com/LarryTLlama/pvc-status/raw/main/PVC%20App%20Setup.exe"><button>Get the app (Currently unavailable, sorry!)</button></a>
 </div>
 </div>
 </div>
+<script>
+window.onload = function() {
+
+//
+//Windows Text Stuff
+//
+
+var content = `========================
+(Very) IMPORTANT NOTICE:
+======================== 
+This app is 200% Fan-Based. This means we have no affiliation with PVC in any matter and this app is simply to help you players have an easier way of accessing the server related websites. We do hope you enjoy using this app, but this is not official and therefore has not been created by the same creators as the central server. This has been created by LarryTLlama (me). Install at your own risk!
+
+TL;DR: This app is no longer the "PVC-App" and is simply just an unofficial, fan-made program by LarryTLlama to help you guys, the players. :D 
+
+==================
+Whats new in V1.0.2?
+==================
+- Rebranded to Larry's App (yes, it means more llamas!)
+- Added Tray icon. Right click to get a quick-server-status notification!
+
+===================
+Installation Notes
+===================
+Encounter any problems with installation? Let me know! DM LarryTLlama#8588 on discord!
+- Windows Defender went a bit weird when I was making this installer. If the same happens for you, the fix is to turn it off in your settings during installation, and turn it back on once done (though this may not be necessary, and its your choice to try this. I'm not responsible for any issues!). I 100% have not put in any malware, promise!
+
+
+===================
+Larry's App 
+by LarryTLlama (duh)
+==================
+Encountered any problems?
+DM LarryTLlama#8588 with *any* issues (and I'll try and fix them)! 
+==================`
+document.getElementById('windowsN').innerText = content
+
+//
+//Linux Text Stuff
+//
+
+var newcontent = `========================
+(Very) IMPORTANT NOTICE:
+======================== 
+This app is 200% Fan-Based. This means we have no affiliation with PVC in any matter and this app is simply to help you players have an easier way of accessing the server related websites. We do hope you enjoy using this app, but this is not official and therefore has not been created by the same creators as the central server. This has been created by LarryTLlama (me). Install at your own risk!
+
+TL;DR: This app is no longer the "PVC-App" and is simply just an unofficial, fan-made program by LarryTLlama to help you guys, the players. :D 
+
+==================
+Whats new in V1.0.0?
+==================
+- This is the fancy Linux build! It'll hopefully continue to be up to date, but there is almost no difference between this and other platforms
+- Rebranded to Larry's App (yes, it means more llamas!)
+- Added Tray icon. Clicking focuses the window!
+
+===================
+Installation Notes
+===================
+This installer is a standard debian package. It should simply run and install, but if you enounter any problemos with it, let me know!
+
+
+===================
+Larry's App 
+by LarryTLlama (duh)
+
+Linux build by TheDuckButler
+==================
+Encountered any problems?
+DM LarryTLlama#8588 with *any* issues (and I'll try and fix them)! 
+==================`
+document.getElementById('linuxN').innerText = newcontent
+}
+</script>
 </body>
 </html>

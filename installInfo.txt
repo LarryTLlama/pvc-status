@@ -1,0 +1,27 @@
+========================
+(Very) IMPORTANT NOTICE:
+======================== 
+This app is 200% Fan-Based. This means we have no affiliation with PVC in any matter and this app is simply to help you players have an easier way of accessing the server related websites. We do hope you enjoy using this app, but this is not official and therefore has not been created by the same creators as the central server. This has been created by LarryTLlama (me). Install at your own risk!
+
+TL;DR: This app is no longer the "PVC-App" and is simply just an unofficial, fan-made program by LarryTLlama to help you guys, the players. :D 
+
+==================
+Whats new in V1.0.2?
+==================
+- Rebranded to Larry's App (yes, it means more llamas!)
+- Added Tray icon. Right click to get a quick-server-status notification!
+
+===================
+Installation Notes
+===================
+Encounter any problems with installation? Let me know! DM LarryTLlama#8588 on discord!
+- Windows Defender went a bit weird when I was making this installer. If the same happens for you, the fix is to turn it off in your settings during installation, and turn it back on once done (though this may not be necessary, and its your choice to try this. I'm not responsible for any issues!). I 100% have not put in any malware, promise!
+
+
+===================
+Larry's App 
+by LarryTLlama (duh)
+==================
+Encountered any problems?
+DM LarryTLlama#8588 with *any* issues (and I'll try and fix them)! 
+==================
