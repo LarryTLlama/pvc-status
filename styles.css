@@ -64,6 +64,17 @@ background-size: 100% 100%;
 	color: white;
 }
 
+.smolContent2 {
+	margin: 2%;
+	background-color: #434242;
+	width: 96%;
+	padding-top: 5px;
+	min-height: 46%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+	color: white;
+}
+
 .littleContent {
 	margin: 1%;
 	padding-top: 0;

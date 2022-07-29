@@ -34,6 +34,16 @@ function delay(time) {
 	}
 
 async function getData() {
+	$.getJSON( "https://llamabot-statuspage.glitch.me/mojang", function( res ) {
+		console.log(res)
+		if(res.Status === "OK") {
+			document.getElementById('mojang').innerHTML = `<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Auth Servers are online!</h2>`
+		} else {
+			document.getElementById('mojang').innerHTML = `<h2 style="color: orange;"><i class="fa fa-question-circle-o" aria-hidden="true"></i> No response from Auth Servers</h2>`
+		}
+	})
+	
+	await delay(1000)
 	
 	var bedrock;
 	//Get Bedrock JSON
@@ -65,7 +75,7 @@ async function getData() {
 		}
 	});
 
-	await delay(2000)
+	await delay(1000)
 	var java;
 	//Get Java JSON
 	$.getJSON( "https://llamabot-statuspage.glitch.me/pvc/java", function( res ) {
@@ -122,9 +132,7 @@ async function getData() {
 	}
 	
 	});
-	
-	
-	await delay(3000)
+	await delay(1000)
 
 players();
 	
@@ -136,7 +144,7 @@ players();
     var img = document.getElementById("pingit");
 	//img.setAttribute('style', 'height: 0; width: 0;')
 	console.log(img);
-	await delay(2000)
+	await delay(1000)
     img.onload = function()
     {
 		console.log(document.getElementById('website'))
