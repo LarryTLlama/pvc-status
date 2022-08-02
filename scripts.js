@@ -173,8 +173,8 @@ function refresh() {
 window.onload = function() {
 	//Start refresh timer
 	
-	timer(function() {
-		location.reload()
+	setInterval(function() {
+		getData();
 	}, 60000);
 	
 	//Refresh the thingy
@@ -213,6 +213,9 @@ $.getJSON( "https://llamabot-statuspage.glitch.me/pvc", function( data ) {
 <p>${item.world}</p>
 </button>`
 	})
+	} else {
+	document.getElementById('website').innerHTML = '<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Map is online!</h2>'
+	document.getElementById('lePlayers').innerHTML = '<h1 style="padding-left: 16px;">The map is currently offline</h1><br><p>Please try again later!</p>'
 	}
 })
 }
