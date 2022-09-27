@@ -34,7 +34,7 @@ function delay(time) {
 	}
 
 async function getData() {
-	$.getJSON( "https://llamabot-statuspage.glitch.me/mojang", function( res ) {
+	$.getJSON( "https://larrytllama.cyclic.app/mojang", function( res ) {
 		console.log(res)
 		if(res.Status === "OK") {
 			document.getElementById('mojang').innerHTML = `<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Auth Servers are online!</h2>`
@@ -47,7 +47,7 @@ async function getData() {
 	
 	var bedrock;
 	//Get Bedrock JSON
-	$.getJSON( "https://api.mcstatus.io/v1/status/bedrock/bedrock.peacefulvanilla.club", function( data ) {
+	$.getJSON( "https://larrytllama.cyclic.app/bedrock", function( data ) {
 		console.log('Bedrock');
 		console.log(data)
 		if(data.online) {
@@ -78,7 +78,7 @@ async function getData() {
 	await delay(1000)
 	var java;
 	//Get Java JSON
-	$.getJSON( "https://llamabot-statuspage.glitch.me/pvc/java", function( res ) {
+	$.getJSON( "https://larrytllama.cyclic.app/pvc/java", function( res ) {
 		console.log('Java');
 		//console.log(data);
 		let data = res.result
