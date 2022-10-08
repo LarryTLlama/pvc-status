@@ -47,7 +47,7 @@ async function getData() {
 	
 	var bedrock;
 	//Get Bedrock JSON
-	$.getJSON( "https://larrytllama.cyclic.app/bedrock", function( data ) {
+	$.getJSON( "https://larrytllama.cyclic.app/pvc/bedrock", function( data ) {
 		console.log('Bedrock');
 		console.log(data)
 		if(data.online) {
@@ -199,7 +199,7 @@ function openPlayerList() {
 }
 
 function players() {
-$.getJSON( "https://llamabot-statuspage.glitch.me/pvc", function( data ) {
+$.getJSON( "https://larrytllama.cyclic.app/pvc", function( data ) {
 	if(data.max) {
 	document.getElementById('website').innerHTML = '<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Map is online!</h2>'
 	document.getElementById('lePlayers').innerHTML = '<h1 style="padding-left: 16px;">Player List</h1>'
