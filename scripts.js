@@ -50,25 +50,23 @@ async function getData() {
 	$.getJSON( "https://larrytllama.cyclic.app/pvc/bedrock", function( data ) {
 		console.log('Bedrock');
 		console.log(data)
-		if(data.online) {
+		if(data.edition) {
 			document.getElementById('bedrock').innerHTML = `<br>
 			<h2 id="actualStatus" style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Bedrock is online!</h2>
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
 			<p>Response:</p>
-			<p>Player count: ${data.response.online_players}/${data.response.max_players}</p>
-			<p>Version: ${data.response.version}</p>
+			<p>Player count: ${data.players.online}/${data.players.max}</p>
+			<p>Version: ${data.version.name}</p>
 			<p id="maybe">IP: bedrock.peacefulvanilla.club Port: 19132</p>
 			</div>`
 			bedrock = true
-		} else if(data.online === false) {
+		} else {
 			document.getElementById('bedrock').innerHTML = `<br>
 			<h2 id="actualStatus" style="color: red;">Bedrock is offline!</h2>
 			<p>Here's some cake for now <img src="cake.png" style="height: 30px;"></img>
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
-			<p>Response:</p>
-			<p>${data.response}</p>
 			<p>IP: bedrock.peacefulvanilla.club Port: 19132</p>
 			</div>`
 			bedrock = false
