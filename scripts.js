@@ -197,8 +197,8 @@ function openPlayerList() {
 }
 
 function players() {
-$.getJSON( "https://larrytllama.cyclic.app/pvc", function( data ) {
-	if(data.max) {
+$.ajax("https://web.peacefulvanilla.club/status.html").done(function( data ) {
+	if(data == "online") {
 	document.getElementById('website').innerHTML = '<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Map is online!</h2>'
 	document.getElementById('lePlayers').innerHTML = '<h1 style="padding-left: 16px;">Player List</h1>'
 	console.log(data);
