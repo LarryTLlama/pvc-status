@@ -87,8 +87,7 @@ async function getData() {
 			<p>Have a cookie for now <img src="cookie.png" style="height: 30px;"></img>
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
-			<p>Response:</p>
-			<p>${data.error}</p>
+			<p>Response: ${data.error}</p>
 			</div>`
 			java = false
 		} else if(data.version) {
