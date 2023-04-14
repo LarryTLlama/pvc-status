@@ -34,7 +34,7 @@ function delay(time) {
 	}
 
 async function getData() {
-	$.getJSON( "https://larrytllama.cyclic.app/mojang", function( res ) {
+	$.getJSON( "https://li-map.vercel.app/api/mojang", function( res ) {
 		console.log(res)
 		if(res.Status === "OK") {
 			document.getElementById('mojang').innerHTML = `<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Auth Servers are online!</h2>`
@@ -47,7 +47,7 @@ async function getData() {
 	
 	var bedrock;
 	//Get Bedrock JSON
-	$.getJSON( "https://larrytllama.cyclic.app/pvc/bedrock", function( data ) {
+	$.getJSON( "https://li-map.vercel.app/api/pvc-bedrock", function( data ) {
 		console.log('Bedrock');
 		console.log(data)
 		if(data.edition) {
@@ -67,7 +67,7 @@ async function getData() {
 			<p>Here's some cake for now <img src="cake.png" style="height: 30px;"></img>
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
-			<p>IP: bedrock.peacefulvanilla.club Port: 19132</p>
+			<p>Reason: ${data.error}</p>
 			</div>`
 			bedrock = false
 		}
@@ -76,19 +76,19 @@ async function getData() {
 	await delay(1000)
 	var java;
 	//Get Java JSON
-	$.getJSON( "https://larrytllama.cyclic.app/pvc/java", function( res ) {
+	$.getJSON( "https://li-map.vercel.app/api/pvc-java", function( res ) {
 		console.log('Java');
 		//console.log(data);
-		let data = res.result
+		let data = res;
 		console.log(data);
-		if(res.online === false) {
+		if(res.error) {
 			document.getElementById('java').innerHTML = `<br>
 			<h2 style="color: red;"><i class="fa fa-times-circle" aria-hidden="true"></i> Java is offline!</h2>
 			<p>Have a cookie for now <img src="cookie.png" style="height: 30px;"></img>
 			<br>
 			<div style="padding-left: 16px; text-align: left;">
 			<p>Response:</p>
-			<p>${data}</p>
+			<p>${data.error}</p>
 			</div>`
 			java = false
 		} else if(data.version) {
@@ -197,8 +197,9 @@ function openPlayerList() {
 }
 
 function players() {
-$.ajax("https://web.peacefulvanilla.club/status.html").done(function( data ) {
-	if(data == "online") {
+$.getJSON("https://li-map.vercel.app/api/index", function( data ) {
+	if(!data.error) {
+		console.log("Hello I am the annoying code that's not supposed to be running")
 	document.getElementById('website').innerHTML = '<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Map is online!</h2>'
 	document.getElementById('lePlayers').innerHTML = '<h1 style="padding-left: 16px;">Player List</h1>'
 	console.log(data);
@@ -212,7 +213,7 @@ $.ajax("https://web.peacefulvanilla.club/status.html").done(function( data ) {
 </button>`
 	})
 	} else {
-	document.getElementById('website').innerHTML = '<h2 style="color: green;"><i class="fa fa-check-square" aria-hidden="true"></i> Map is online!</h2>'
+	document.getElementById('website').innerHTML = '<h2 style="color: red;"><i class="fa fa-times-circle" aria-hidden="true"></i> Map is offline!</h2>'
 	document.getElementById('lePlayers').innerHTML = '<h1 style="padding-left: 16px;">The map is currently offline</h1><br><p>Please try again later!</p>'
 	}
 })
